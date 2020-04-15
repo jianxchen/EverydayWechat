@@ -9,6 +9,9 @@ Introduction: 获取空气质量
 """
 
 import requests
+from everyday_wechat.utils.common import (
+    Proxies
+)
 
 # token，申请地址：http://aqicn.org/data-platform/token/#/
 AQICN_TOKEN = '6382db85ef321ae81f316486de0b5b8aa6c84f62'
@@ -38,7 +41,7 @@ def get_air_quality(city):
     try:
 
         url = 'http://api.waqi.info/feed/{city}/?token={token}'.format(city=city, token=AQICN_TOKEN)
-        resp = requests.get(url)
+        resp = requests.get(url,proxies=Proxies)
         if resp.status_code == 200:
             # print(resp.text)
             content_dict = resp.json()

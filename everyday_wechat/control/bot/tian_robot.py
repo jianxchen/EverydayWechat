@@ -8,7 +8,8 @@ Introduction: 天行机器人 申请地址( https://www.tianapi.com/apiview/47 )
 import requests
 from everyday_wechat.utils import config
 from everyday_wechat.utils.common import (
-    md5_encode
+    md5_encode,
+    Proxies
 )
 
 __all__ = ['get_auto_reply', 'BOT_INDEX', 'BOT_NAME']
@@ -42,7 +43,7 @@ def get_tianapi_robot(text, userid):
             'datatype': '0',  # 返回类型，文本0[默认]、语音1
         }
         url = 'https://api.tianapi.com/txapi/robot/'
-        resp = requests.get(url, params=params)
+        resp = requests.get(url, params=params,proxies=Proxies)
         if resp.status_code == 200:
             # print(resp.text)
             content_dict = resp.json()

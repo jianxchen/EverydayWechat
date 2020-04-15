@@ -4,6 +4,9 @@ https://chp.shadiao.app/?from_nmsl
 彩虹屁生成器
  """
 import requests
+from everyday_wechat.utils.common import (
+    Proxies
+)
 
 __all__ = ['get_caihongpi_info']
 
@@ -15,7 +18,7 @@ def get_caihongpi_info():
     """
     print('获取彩虹屁信息...')
     try:
-        resp = requests.get('https://chp.shadiao.app/api.php')
+        resp = requests.get('https://chp.shadiao.app/api.php',proxies=Proxies)
         if resp.status_code == 200:
             return resp.text
         print('彩虹屁获取失败。')

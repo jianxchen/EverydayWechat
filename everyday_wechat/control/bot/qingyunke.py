@@ -6,12 +6,16 @@ http://api.qingyunke.com/
 可直接使用
 """
 import requests
+from everyday_wechat.utils.common import (
+    Proxies
+)
 
 __all__ = ['get_auto_reply', 'BOT_INDEX', 'BOT_NAME']
 BOT_INDEX = 3
 BOT_NAME = '青云客机器人'
 
 URL = 'http://api.qingyunke.com/api.php?key=free&appid=0&msg={}'
+
 
 
 def get_qingyunke(text, userid=''):
@@ -23,7 +27,7 @@ def get_qingyunke(text, userid=''):
     """
     try:
         # print('发出消息:{}'.format(text))
-        resp = requests.get(URL.format(text))
+        resp = requests.get(URL.format(text),proxies=Proxies)
         if resp.status_code == 200:
             # print(resp.text)
             re_data = resp.json()

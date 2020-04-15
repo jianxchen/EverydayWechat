@@ -15,7 +15,8 @@ import random
 import string
 import requests
 from everyday_wechat.utils.common import (
-    md5_encode
+    md5_encode,
+    Proxies
 )
 from everyday_wechat.utils import config
 
@@ -24,6 +25,7 @@ BOT_INDEX = 4
 BOT_NAME = '腾讯智能闲聊'
 
 URL = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_textchat'
+
 
 
 def get_nlp_textchat(text, userId):
@@ -57,7 +59,7 @@ def get_nlp_textchat(text, userId):
         }
         # 签名信息
         params['sign'] = getReqSign(params, app_key)
-        resp = requests.get(URL, params=params)
+        resp = requests.get(URL, params=params,proxies=Proxies)
         if resp.status_code == 200:
             # print(resp.text)
             content_dict = resp.json()

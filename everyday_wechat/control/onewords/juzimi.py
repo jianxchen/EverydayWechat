@@ -6,6 +6,9 @@ Author: ClaireYiu(https://github.com/ClaireYiu)
 """
 import random
 import requests
+from everyday_wechat.utils.common import (
+    Proxies
+)
 
 
 # from requests_html import HTMLSession
@@ -31,7 +34,7 @@ def get_zsh_info():
         url = 'https://www.juzimi.com/{}?page={}'.format(
             apdix[0], random.randint(1, apdix[1]))
         # print(url)
-        resp = requests.get(url)
+        resp = requests.get(url,proxies=Proxies)
         if resp.status_code == 200:
             # print(resp.html)
             # results = resp.find('a.xlistju')

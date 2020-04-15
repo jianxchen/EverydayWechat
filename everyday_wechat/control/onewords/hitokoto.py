@@ -4,6 +4,9 @@
 """
 
 import requests
+from everyday_wechat.utils.common import (
+    Proxies
+)
 
 __all__ = ['get_hitokoto_info']
 
@@ -15,7 +18,7 @@ def get_hitokoto_info():
     """
     print('获取一言...')
     try:
-        resp = requests.get('https://v1.hitokoto.cn/', params={'encode': 'text'})
+        resp = requests.get('https://v1.hitokoto.cn/', params={'encode': 'text'},proxies=Proxies)
         if resp.status_code == 200:
             return resp.text
         print('一言获取失败。')

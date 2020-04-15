@@ -10,7 +10,7 @@ Introduction: 猫眼实时票房 地址：https://piaofang.maoyan.com/dashboard
 import requests
 
 from datetime import datetime
-from everyday_wechat.utils.common import SPIDER_HEADERS
+from everyday_wechat.utils.common import (SPIDER_HEADERS,Proxies)
 
 
 def get_maoyan_movie_box(date='', is_expired=False):
@@ -26,7 +26,7 @@ def get_maoyan_movie_box(date='', is_expired=False):
     print('获取 {} 的票房数据...'.format(date_))
     # try:
     url = 'https://piaofang.maoyan.com/second-box?beginDate={}'.format(date_)
-    resp = requests.get(url, headers=SPIDER_HEADERS)
+    resp = requests.get(url, headers=SPIDER_HEADERS,proxies=Proxies)
     # print(resp)
     if resp.status_code == 200:
         # print(resp.text)

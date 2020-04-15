@@ -9,7 +9,8 @@ apiKey,userid 需要去官网申请。
 import requests
 from everyday_wechat.utils.common import (
     is_json,
-    md5_encode
+    md5_encode,
+    Proxies
 )
 from everyday_wechat.utils import config
 
@@ -56,7 +57,7 @@ def get_tuling123(text, userId):
             }
         }
         # print('发出消息:{}'.format(text))
-        resp = requests.post(URL, json=content)
+        resp = requests.post(URL, json=content,proxies=Proxies)
         if resp.status_code == 200 and is_json(resp):
             # print(resp.text)
             re_data = resp.json()

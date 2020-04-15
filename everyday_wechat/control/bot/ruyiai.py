@@ -8,7 +8,8 @@ Introduction: 海知智能 <https://ruyi.ai/> 功能很强大，不仅仅用于�
 import requests
 from everyday_wechat.utils import config
 from everyday_wechat.utils.common import (
-    md5_encode
+    md5_encode,
+    Proxies
 )
 
 __all__ = ['get_auto_reply', 'BOT_INDEX', 'BOT_NAME']
@@ -16,7 +17,7 @@ BOT_INDEX = 6
 BOT_NAME = '海知智能机器人'
 
 URL = 'http://api.ruyi.ai/v1/message'
-
+proxies = { "http": "127.0.0.1:12639", "https": "127.0.0.1:12639", }
 
 def get_ruyiai_bot(text, userId):
     """
@@ -35,7 +36,7 @@ def get_ruyiai_bot(text, userId):
 
         params = {'q': text, 'user_id': md5_encode(userId), 'app_key': app_key}
         headers = {'Content-Type': 'application/json'}
-        resp = requests.get(URL, headers=headers, params=params)
+        resp = requests.get(URL, headers=headers, params=params,proxies=Proxies)
         if resp.status_code == 200:
             # print(resp.text)
             content_dict = resp.json()

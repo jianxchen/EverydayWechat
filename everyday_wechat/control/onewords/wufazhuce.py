@@ -4,7 +4,7 @@
 """
 import requests
 from bs4 import BeautifulSoup
-from everyday_wechat.utils.common import SPIDER_HEADERS
+from everyday_wechat.utils.common import (SPIDER_HEADERS,Proxies)
 
 __all__ = ['get_wufazhuce_info']
 
@@ -17,7 +17,7 @@ def get_wufazhuce_info():
     print('获取 ONE 信息...')
     user_url = 'http://wufazhuce.com/'
     try:
-        resp = requests.get(user_url, headers=SPIDER_HEADERS)
+        resp = requests.get(user_url, headers=SPIDER_HEADERS,Proxies)
         if resp.status_code == 200:
             soup_texts = BeautifulSoup(resp.text, 'lxml')
             # 『one -个』 中的每日一句

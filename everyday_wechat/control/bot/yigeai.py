@@ -7,6 +7,7 @@ import requests
 from everyday_wechat.utils.common import (
     is_json,
     md5_encode,
+    Proxies
 )
 
 from everyday_wechat.utils import config
@@ -38,7 +39,7 @@ def get_yigeai(text, userid):
 
         # print('发出的消息:{}'.format(text))
         data = {'token': token, 'query': text, 'session_id': session_id}
-        resp = requests.post('http://www.yige.ai/v1/query', data=data)
+        resp = requests.post('http://www.yige.ai/v1/query', data=data,proxies=Proxies)
         if resp.status_code == 200 and is_json(resp):
             # print(resp.text)
             re_data = resp.json()

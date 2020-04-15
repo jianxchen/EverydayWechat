@@ -3,6 +3,9 @@
 从土味情话中获取每日一句。
  """
 import requests
+from everyday_wechat.utils.common import (
+    Proxies
+)
 
 __all__ = ['get_lovelive_info']
 
@@ -14,7 +17,7 @@ def get_lovelive_info():
     """
     print('获取土味情话...')
     try:
-        resp = requests.get('https://api.lovelive.tools/api/SweetNothings')
+        resp = requests.get('https://api.lovelive.tools/api/SweetNothings',proxies=Proxies)
         if resp.status_code == 200:
             return resp.text
         print('土味情话获取失败。')

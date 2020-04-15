@@ -7,7 +7,8 @@ from datetime import datetime
 import requests
 from everyday_wechat.utils.common import (
     WEEK_DICT,
-    SPIDER_HEADERS
+    SPIDER_HEADERS,
+    Proxies
 )
 
 __all__ = ['get_sojson_calendar']
@@ -24,7 +25,7 @@ def get_sojson_calendar(date=''):
     # print('获取 {} 的日历...'.format(date_))
     try:
         resp = requests.get('https://www.sojson.com/open/api/lunar/json.shtml?date={}'.format(date_),
-                            headers=SPIDER_HEADERS)
+                            headers=SPIDER_HEADERS,proxies=Proxies)
         if resp.status_code == 200:
             """
             {"code":1,"msg":"数据返回成功","data":{

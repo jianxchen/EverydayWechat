@@ -12,6 +12,9 @@ import base64
 import requests
 
 from everyday_wechat.utils import config
+from everyday_wechat.utils.common import (
+    Proxies
+)
 
 # 此处为快递鸟官网申请的帐号和密码
 
@@ -54,7 +57,7 @@ def get_company_info(express_code, app_id, app_key):
         'DataSign': encrypt(d1, app_key)
     }
     try:
-        resp = requests.post(URL, data=post_data, headers=HEADERS)
+        resp = requests.post(URL, data=post_data, headers=HEADERS,proxies=Proxies)
         print(resp.text)
         if resp.status_code == 200:
             content_dict = resp.json()
@@ -100,7 +103,7 @@ def get_logistic_info(logistic_code, shipper_code, app_id, app_key):
         'DataSign': encrypt(d1, app_key)
     }
     try:
-        resp = requests.post(URL, data=post_data, headers=HEADERS)
+        resp = requests.post(URL, data=post_data, headers=HEADERS,proxies=Proxies)
         print(resp.text)
         if resp.status_code == 200:
             content_dict = resp.json()

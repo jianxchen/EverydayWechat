@@ -38,7 +38,7 @@ def get_rtcalendar(date=''):
 
     print('获取 {} 的日历...'.format(date_))
     try:
-        resp = requests.get('https://www.mxnzp.com/api/holiday/single/{}'.format(date_))
+        resp = requests.get('https://www.mxnzp.com/api/holiday/single/{}'.format(date_),proxies=Proxies)
         if resp.status_code == 200:
             # print(resp.text)
             content_dict = resp.json()

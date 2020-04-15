@@ -6,7 +6,8 @@
 
 import requests
 from everyday_wechat.utils.common import (
-    is_json
+    is_json,
+    Proxies
 )
 
 __all__ = ['get_acib_info']
@@ -19,7 +20,7 @@ def get_acib_info():
     """
     print('获取格言信息（双语）...')
     try:
-        resp = requests.get('http://open.iciba.com/dsapi')
+        resp = requests.get('http://open.iciba.com/dsapi',proxies=Proxies)
         if resp.status_code == 200 and is_json(resp):
             content_dict = resp.json()
             content = content_dict.get('content')

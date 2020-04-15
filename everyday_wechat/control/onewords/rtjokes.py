@@ -4,6 +4,9 @@ https://github.com/MZCretin/RollToolsApi#随机获取笑话段子列表
 随机获取笑话段子列表
 """
 import requests
+from everyday_wechat.utils.common import (
+    Proxies
+)
 
 __all__ = ['get_rtjokes_info']
 
@@ -15,7 +18,7 @@ def get_rtjokes_info():
     """
     print('获取随机笑话...')
     try:
-        resp = requests.get('https://www.mxnzp.com/api/jokes/list/random')
+        resp = requests.get('https://www.mxnzp.com/api/jokes/list/random',proxies=Proxies)
         # print(resp.text)
         if resp.status_code == 200:
             content_dict = resp.json()

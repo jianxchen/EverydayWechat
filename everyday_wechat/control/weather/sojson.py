@@ -5,6 +5,9 @@ import json
 import os
 from datetime import datetime
 from datetime import timedelta
+from everyday_wechat.utils.common import (
+    Proxies
+)
 
 __all__ = ['get_sojson_weather', 'get_sojson_weather_tomorrow']
 
@@ -33,7 +36,7 @@ def get_sojson_weather(city_name, is_tomorrow=False):
 
     weather_url = 'http://t.weather.sojson.com/api/weather/city/{}'.format(city_code)
     try:
-        resp = requests.get(url=weather_url)
+        resp = requests.get(url=weather_url,proxies=Proxies)
         if resp.status_code == 200:
             # print(resp.text)
             weather_dict = resp.json()
@@ -97,7 +100,7 @@ def get_sojson_weather_tomorrow(city_name):
 
     weather_url = 'http://t.weather.sojson.com/api/weather/city/{}'.format(city_code)
     try:
-        resp = requests.get(url=weather_url)
+        resp = requests.get(url=weather_url,proxies=Proxies)
         # print(resp.text)
         if resp.status_code == 200:
             weather_dict = resp.json()

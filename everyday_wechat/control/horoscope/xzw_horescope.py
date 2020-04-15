@@ -8,7 +8,7 @@ import re
 from functools import reduce
 import requests
 from bs4 import BeautifulSoup
-from everyday_wechat.utils.common import SPIDER_HEADERS
+from everyday_wechat.utils.common import (SPIDER_HEADERS,Proxies)
 
 __all__ = ['get_xzw_horoscope', 'get_today_horoscope']
 
@@ -45,7 +45,7 @@ def get_xzw_horoscope(name, is_tomorrow=False):
         req_url = XZW_BASE_URL_TOMORROW.format(const_code) if is_tomorrow \
             else XZW_BASE_URL_TODAY.format(const_code)
 
-        resp = requests.get(req_url, headers=SPIDER_HEADERS)
+        resp = requests.get(req_url, headers=SPIDER_HEADERS,proxies=Proxies)
         if resp.status_code == 200:
             html = resp.text
             lucky_num = re.findall(r'<label>幸运数字：</label>(.*?)</li>', html)[0]

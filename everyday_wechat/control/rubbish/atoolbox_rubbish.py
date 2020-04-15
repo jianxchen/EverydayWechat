@@ -7,7 +7,7 @@ Introduction: http://www.atoolbox.net/Tool.php?Id=804
 """
 
 import requests
-from everyday_wechat.utils.common import SPIDER_HEADERS
+from everyday_wechat.utils.common import (SPIDER_HEADERS,Proxies)
 
 __all__ = ['get_atoolbox_rubbish']
 
@@ -21,7 +21,7 @@ def get_atoolbox_rubbish(key):
     params = {'key': key}
     resp = requests.get('http://www.atoolbox.net/api/GetRefuseClassification.php',
                         headers=SPIDER_HEADERS,
-                        params=params)
+                        params=params,proxies=Proxies)
 
     if resp.status_code == 200:
         # print(resp.text)

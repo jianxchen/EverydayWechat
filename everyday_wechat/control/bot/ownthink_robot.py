@@ -9,7 +9,8 @@ import re
 import requests
 from everyday_wechat.utils import config
 from everyday_wechat.utils.common import (
-    md5_encode
+    md5_encode,
+    Proxies
 )
 
 __all__ = ['get_auto_reply', 'BOT_INDEX', 'BOT_NAME']
@@ -38,7 +39,8 @@ def get_ownthink_robot(text, userid):
             'spoken': text
         }
         url = 'https://api.ownthink.com/bot'
-        resp = requests.get(url, params=params)
+        
+        resp = requests.get(url, params=params,proxies=Proxies)
         if resp.status_code == 200:
             # print(resp.text)
             content_dict = resp.json()
