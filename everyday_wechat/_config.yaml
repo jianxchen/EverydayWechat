@@ -16,7 +16,7 @@ auto_reply_info:
   # 自动回复消息前缀（不需要则设置为空）
   auto_reply_prefix: ''
   # 自动回复消息后缀（不需要则设置为空）
-  auto_reply_suffix: '   --新哥在上班,以下由新仔回复'
+  auto_reply_suffix: '   --哥哥暂时不在,以下由小豪豪回复'
 
   # 白名单，is_auto_reply_all: False 生效。此名单的用户才可自动回复。（填：文件传输助手，可回复自己，测试效果）
   auto_reply_white_list:
@@ -27,10 +27,10 @@ auto_reply_info:
 
   # 黑名单，is_auto_reply_all:True 生效。此名单不会自动回复。
   auto_reply_black_list:
-    - '韦春菲'
+    - ''
 
   # 机器人渠道（1: 图灵机器人，2: 一个AI ,3 : 青云客，4 腾讯智能闲聊，5:天行机器人,6：海知智能，7：思知机器人)
-  bot_channel: 7
+  bot_channel: 4
 
   #图灵机器人(http://www.tuling123.com/) 实名后的用户每天免费可用 100 条。
   turing_conf:
@@ -44,8 +44,8 @@ auto_reply_info:
 
   # 智能闲聊（腾讯）https://ai.qq.com/product/nlpchat.shtml。免费且无限量
   qqnlpchat_conf:
-    app_id: '你申请的api_id'
-    app_key: '你申请的app_key'
+    app_id: '2134731037'
+    app_key: 'PNm4I8HY655mtW9Q'
 
   # 海知智能 <https://ruyi.ai/> 功能很强大，不仅仅用于聊天。需申请 key，免费
   ruyi_conf:
