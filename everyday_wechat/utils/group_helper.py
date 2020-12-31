@@ -387,7 +387,8 @@ def handle_group_helper(msg):
             itchat.send(reply_text, uuid)
             print('回复{}：{}'.format(ated_name, reply_text))
         else:
-            itchat.send('--自动回复失败', uuid)
+            reply_text = common_msg.format(ated_name=ated_name, text='--自动回复失败')
+            itchat.send(reply_text, uuid)
             print('自动回复失败\n')
 
 
