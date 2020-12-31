@@ -68,3 +68,6 @@ def run():
 
 if __name__ == '__main__':
     run()
+
+# 在linux服务器上用以下命令在后台运行
+# nohup python3 -u run.py > nohup.out 2>&1 &
