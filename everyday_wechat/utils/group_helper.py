@@ -376,6 +376,14 @@ def handle_group_helper(msg):
         reply_text = get_bot_info(text, ated_uuid)  # 获取自动回复
         if reply_text:  # 如内容不为空，回复消息
             reply_text = common_msg.format(ated_name=ated_name, text=reply_text)
+            prefix = conf.get('auto_reply_prefix', '')  # 前缀
+            if prefix:
+                reply_text = '{}{}'.format(prefix, reply_text)
+
+            suffix = conf.get('auto_reply_suffix', '')  # 后缀
+            if suffix:
+                reply_text = '{}{}'.format(reply_text, suffix)
+                
             itchat.send(reply_text, uuid)
             print('回复{}：{}'.format(ated_name, reply_text))
         else:
