@@ -14,8 +14,8 @@ __all__ = [
 FILEHELPER_MARK = ['文件传输助手', 'filehelper']  # 文件传输助手标识
 FILEHELPER = 'filehelper'
 
-# Proxies = { "http": "127.0.0.1:12639", "https": "127.0.0.1:12639", }
-Proxies = ''
+Proxies = { "http": "127.0.0.1:12639", "https": "127.0.0.1:12639", }
+# Proxies = ''
 
 SPIDER_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; '
