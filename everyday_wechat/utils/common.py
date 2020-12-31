@@ -14,7 +14,8 @@ __all__ = [
 FILEHELPER_MARK = ['文件传输助手', 'filehelper']  # 文件传输助手标识
 FILEHELPER = 'filehelper'
 
-# Proxies = { "http": "127.0.0.1:12639", "https": "127.0.0.1:12639", }
+#在公司内网启动服务需要开启代理
+# Proxies = { "http": "127.0.0.1:12639", "https": "127.0.0.1:12639", } 
 Proxies = ''
 
 SPIDER_HEADERS = {

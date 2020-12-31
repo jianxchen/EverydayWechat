@@ -383,10 +383,11 @@ def handle_group_helper(msg):
             suffix = conf.get('auto_reply_suffix', '')  # 后缀
             if suffix:
                 reply_text = '{}{}'.format(reply_text, suffix)
-                
+
             itchat.send(reply_text, uuid)
             print('回复{}：{}'.format(ated_name, reply_text))
         else:
+            itchat.send('--自动回复失败', uuid)
             print('自动回复失败\n')
 
 

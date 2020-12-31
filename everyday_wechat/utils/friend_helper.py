@@ -62,6 +62,7 @@ def handle_friend(msg):
             itchat.send(reply_text, toUserName=uuid)
             print('回复{}：{}'.format(nick_name, reply_text))
         else:
+            itchat.send('--自动回复失败', toUserName=uuid)
             print('自动回复失败\n')
     except Exception as exception:
         print(str(exception))
