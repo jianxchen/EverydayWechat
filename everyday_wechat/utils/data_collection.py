@@ -7,7 +7,7 @@ import re
 from datetime import datetime
 from datetime import timedelta
 
-# from everyday_wechat.control.weather.rtweather import get_today_weather
+from everyday_wechat.control.weather.rtweather import get_today_weather
 from everyday_wechat.control.weather.sojson import get_sojson_weather
 from everyday_wechat.utils.common import (
     get_constellation_name,
@@ -59,8 +59,8 @@ def get_weather_info(cityname, is_tomorrow=False):
     """
     if not cityname:
         return
-    # return get_today_weather(cityname)
-    return get_sojson_weather(cityname, is_tomorrow)
+    return get_today_weather(cityname)
+    # return get_sojson_weather(cityname, is_tomorrow)
 
 
 def get_bot_info(message, userId=''):

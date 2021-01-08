@@ -4,9 +4,10 @@ https://github.com/MZCretin/RollToolsApi#获取特定城市今日天气
 获取特定城市今日天气
 """
 import requests
-from everyday_wechat.utils.common import (
-    Proxies
-)
+# from everyday_wechat.utils.common import (
+#     Proxies
+# )
+Proxies = { "http": "127.0.0.1:12639", "https": "127.0.0.1:12639", } 
 
 __all__ = ['get_rttodayweather']
 
@@ -25,7 +26,7 @@ def get_rttodayweather(cityname):
     print('获取 {} 的天气...'.format(cityname))
     try:
         # forecast
-        resp = requests.get('https://www.mxnzp.com/api/weather/forecast/{}'.format(cityname),proxies=Proxies)
+        resp = requests.get('https://www.mxnzp.com/api/weather/current/{}?app_id=j2kldeoapuixsbjl&app_secret=bEkrdWNFcGpYZVFETWZZT2JpOWNPdz09'.format(cityname),proxies=Proxies)
         print(resp.text)
         if resp.status_code == 200:
             content_dict = resp.json()
@@ -59,5 +60,5 @@ get_today_weather = get_rttodayweather
 if __name__ == '__main__':
     cityname = '香港'
     weather = get_today_weather(cityname)
-    # print(weather)
+    print(weather)
     pass

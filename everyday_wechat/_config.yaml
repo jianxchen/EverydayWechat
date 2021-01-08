@@ -132,7 +132,7 @@ group_helper_conf:
     - ''
     - ''
 
-  is_at: False # 艾特标记。只有当别人艾特机器人，才会处理消息（慎重关闭！）
+  is_at: True # 艾特标记。只有当别人艾特机器人，才会处理消息（慎重关闭！）
   is_auto_reply: True # 开启群自动回复（慎重开启！）
   is_weather: True # 是否开启天气查询
   is_calendar: True # 是否开启万历年查询
@@ -149,12 +149,12 @@ group_helper_conf:
   # 自动回复消息前缀（不需要则设置为空）
   auto_reply_prefix: ''
   # 自动回复消息后缀（不需要则设置为空）
-  auto_reply_suffix: '   --哥哥暂时不在,以下由陈弟弟回复'
+  auto_reply_suffix: '   --哥哥暂时不在,以下由新仔回复'
 
 # start ----------------------------------- 数据库设置 ----------------------------------- start
 # 可不安装与设置数据库内容，数据库主要用于群助手功能中，查询数据的缓存。
 db_config: # 请安装 mongodb 数据库
-  is_open_db: False # 是否开启数据库功能
+  is_open_db: True # 是否开启数据库功能
   mongodb_conf:
     'host': 'localhost'
     'port': 27017

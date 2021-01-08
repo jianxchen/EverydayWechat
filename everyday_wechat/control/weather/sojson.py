@@ -33,7 +33,7 @@ def get_sojson_weather(city_name, is_tomorrow=False):
         print('没有此城市的消息...')
         return None
     print('获取天气信息...')
-
+    #http://t.weather.sojson.com/api/weather/city/{}
     weather_url = 'http://t.weather.sojson.com/api/weather/city/{}'.format(city_code)
     try:
         resp = requests.get(url=weather_url,proxies=Proxies)
